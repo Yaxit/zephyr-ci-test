@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          path: project
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -19,12 +21,12 @@ jobs:
       - name: Setup Zephyr project
         uses: zephyrproject-rtos/action-zephyr-setup@v1
         with:
-          app-path: .
+          app-path: project
           toolchains: arm-zephyr-eabi
 
       - name: Build
-        # working-directory: project
-        # shell: bash
+        working-directory: project
+        shell: bash
         run: |
             west build app
         #   if [ "${{ runner.os }}" = "Windows" ]; then
