@@ -1,0 +1,19 @@
+manifest:
+  self:
+    path: smartVNS
+
+  group-filter: [+nanopb]
+
+  remotes:
+    - name: ncs
+      url-base: https://github.com/nrfconnect
+    - name: zephyr
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: sdk-nrf
+      remote: ncs
+      path: nrf
+      revision: v2.7.0
+      import: true
+      west-commands: scripts/west-commands.yml
